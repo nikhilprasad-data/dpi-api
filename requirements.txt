@@ -1,0 +1,23 @@
+# Orchestration
+langchain
+langchain-core
+langgraph
+
+# Providers
+langchain-groq
+langchain-mistralai
+langchain-huggingface
+
+# Web Search, Scraping & Tools
+langchain-community
+tavily-python
+duckduckgo-search
+beautifulsoup4
+
+# Backend
+fastapi
+uvicorn[standard]
+pydantic
+
+# Environment
+python-dotenv
