@@ -18,4 +18,4 @@ class Config():
 
      MISTRAL_MODEL=os.environ.get("MISTRAL_MODEL","")
 
-
+     HUGGINGFACE_API_KEY=os.environ.get("HUGGINGFACE_API_KEY","")
