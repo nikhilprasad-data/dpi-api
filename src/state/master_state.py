@@ -9,8 +9,6 @@ class State(TypedDict):
 
      route_decision: str
 
-     draft: str
-
      review_feedback: str
 
      attempt: int
@@ -18,4 +16,12 @@ class State(TypedDict):
      research_data: Annotated[list,operator.add]
 
      image_url: str
+
+     draft: str
+
+     review_feedback: str
+
+     is_approved: bool
+
+     attempt: int
 
