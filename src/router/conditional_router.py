@@ -16,6 +16,9 @@ def conditional_router_node(state: State):
      
      elif last_route_decision == "writer":
           return "writer_node"
+
+     elif last_route_decision == "rag_search":
+          return "rag_node"
      
      else:
           return "chat_node"
