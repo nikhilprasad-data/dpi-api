@@ -1,12 +1,12 @@
 from src.state import State
-from src.tools import tavily_search, duckduckgo_search, scrape_website
-from src.services import get_mistral_llm
+from src.tools import tavily_search, scrape_website
+from src.services import get_groq_llm
 from langchain_core.messages import AIMessage
 
 
-mistral_llm=get_mistral_llm()
+groq_llm=get_groq_llm()
 
-def deep_research(state: State) -> dict:
+def deep_research_node(state: State) -> dict:
     """
     Performs Deep Research by searching the web, extracting the top URL, 
     scraping the full article, and summarizing the facts for the final answer.
@@ -36,7 +36,7 @@ def deep_research(state: State) -> dict:
         Write a highly detailed, structured summary.
         """
         
-        research_summary = mistral_llm.invoke(analysis_prompt).content
+        research_summary = groq_llm.invoke(analysis_prompt).content
         
         final_output = f"Deep Research Complete (Source: {top_url}):\n\n{research_summary}"
 
