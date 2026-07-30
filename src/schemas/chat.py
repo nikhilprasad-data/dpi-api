@@ -1,11 +1,20 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, Literal
 
 class ChatRequest(BaseModel):
 
      prompt: str
 
-     route_to_take: Optional[str] = None
+     route_to_take: Literal[
+          "web_search",
+          "deep_research",
+          "image_gen",
+          "writer",
+          "rag_search",
+          "normal_chat"
+     ] = "normal_chat"
+
+     thread_id: str
 
 class ChatResponse(BaseModel):
 
