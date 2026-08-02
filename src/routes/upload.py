@@ -1,4 +1,5 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException, status
+from src.schemas import UploadResponse
 import os
 import shutil
 
@@ -6,7 +7,7 @@ upload_router = APIRouter()
 
 DATA_DIR = "src/data"
 
-@upload_router.post('/upload', status_code=status.HTTP_201_CREATED)
+@upload_router.post('/upload', response_model=UploadResponse, status_code=status.HTTP_201_CREATED)
 async def upload(file: UploadFile = File(...)):
      
      if not file.filename.endswith(".pdf"):
@@ -16,14 +17,10 @@ async def upload(file: UploadFile = File(...)):
           )
 
      os.makedirs(DATA_DIR, exist_ok=True)
-
      file_path = os.path.join(DATA_DIR, file.filename)
 
-    
      try:
- 
           with open(file_path, "wb") as buffer:
-          
                shutil.copyfileobj(file.file, buffer)
      
      except Exception as e:
