@@ -4,7 +4,8 @@ from src.router import conditional_router_node
 from langgraph.graph import StateGraph, START, END
 from src.state import State
 from langgraph.checkpoint.memory import MemorySaver
- 
+memory = MemorySaver()
+
 def build_graph():
 
      build = StateGraph(State)
@@ -30,7 +31,6 @@ def build_graph():
      build.add_edge("writer_node", "human_review_node")
      build.add_conditional_edges("human_review_node", should_stop_looping)
 
-     memory = MemorySaver()
      work_flow =build.compile(checkpointer= memory)
 
      return work_flow
