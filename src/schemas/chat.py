@@ -23,3 +23,12 @@ class ChatResponse(BaseModel):
      route_taken: Optional[str] = None
 
      img_url: Optional[str] = None
+
+     is_awaiting_review: bool = False
+
+class ResumeRequest(BaseModel):
+
+     thread_id: str
+
+     feedback: str
+     
